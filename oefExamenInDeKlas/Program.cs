@@ -37,9 +37,10 @@ namespace oefExamenInDeKlas
         static void Main(string[] args)
         {
             //variabelen
-            string voornaam, famillienaam, resultaatinput = "";
-            byte resultaat, aantalRes = 0, aantaltekort = 0, laagste =100, hoogste = 0, gemmiddelde ;
+            string voornaam, famillienaam, resultaatinput = "", antwoord, voornaamLetter, achternaamLetter;
+            byte resultaat = 0, aantalRes = 0, aantaltekort = 0, laagste = 100, hoogste = 0, gemmiddelde;
             ushort totaal = 0;
+            bool resultaatok;
             // VRAAG    voornaam
             Console.WriteLine("wat is uw voornaam?: ");
             voornaam = Console.ReadLine();
@@ -47,13 +48,18 @@ namespace oefExamenInDeKlas
             Console.WriteLine("wat is uw achternaam?: ");
             famillienaam = Console.ReadLine();
 
+
             // HERHAAL  
-            while (string.IsNullOrEmpty(resultaatinput)
+            do
             {
                 //   VRAAG    res
                 Console.WriteLine("wat is uw resultaat?: ");
+                resultaat = byte.Parse(Console.ReadLine());
+                resultaatok = byte.TryParse(resultaatinput, out resultaat);
+
+
                 //    ALS      res is geldig
-                if (byte.TryParse(resultaatinput, out resultaat))
+                if (resultaatok == true)
                 {
                     //    DAN      
                     //   BEREKEN  aantalRes +1
@@ -89,17 +95,60 @@ namespace oefExamenInDeKlas
                     {
                         Console.WriteLine("dit is de foute boodschap");
                     }
+
                 }
                 // ZOLANG res niet leeg
+            } while (string.IsNullOrEmpty(resultaatinput));
+
+            //BEREKEN   gemmiddelde
+            //ALS totaal / aantalresultaten zijn gevonden
+            gemmiddelde = (byte)(totaal / aantalRes);
+            //BEREKEN
+            //ALS   gemmiddelde > 70, aantaltekort = 0
+            if (gemmiddelde > 70 & aantaltekort == 0)
+            {
+                //DAN   onderscheiding
+                antwoord = $"je bent geslaagd met onderscheiding";
             }
-            //BEREKEN gemmiddelde
-            gemmiddelde = (byte)( totaal / aantalRes);
+            //ALS   gemmiddelde < 50 & > 70, aantaltekort <= 1
+            if (gemmiddelde < 50 & aantaltekort <= 1)
+            {
+                //DAN   voldoende
+                antwoord = $"je bent geslaagd";
+            }
+            //ANDERS   spijtig je bent niet geslaagd
+            else
+            {
+                antwoord = $"je bent gebuist";
+            }
+
+
+            // BEREKEN naam
+            //ALS  voornaam is ingegeven
+            //DAN  eerste letter van voornaam en die letter in hoofdletters
+            voornaamLetter = voornaam.Substring(0, 1);
+            voornaamLetter = voornaamLetter.ToUpper();
+
+            //ALS  achternaam is ingegeven
+            //DAN  achternaam in hoofdletters
+            achternaamLetter = famillienaam.ToUpper();
+            //TOON alle gevraagde gegevens
+            //grootste getal
+            Console.WriteLine($"{voornaamLetter}.{achternaamLetter} dit zijn alle gegevens van uw examens");
+            Console.WriteLine($"het grootste getal is :{hoogste}");
+            Console.WriteLine($"het laagste getal is : {laagste}");
+            Console.WriteLine($"het aantal cijfers is : {aantalRes}");
+            Console.WriteLine($"het gemmiddelde is : {gemmiddelde}");
+            Console.WriteLine($"dit is de conclusie van uw examens : {antwoord}");
+
+
 
 
             //WACHTEN
             Console.WriteLine();
             Console.WriteLine("druk op enter om af te sluiten");
             Console.ReadKey();
+
         }
     }
 }
