@@ -38,7 +38,7 @@ namespace oefExamenInDeKlas
         {
             //variabelen
             string voornaam, famillienaam, resultaatinput = "";
-            byte resultaat, aantalRes = 0, aantaltekort = 0, laagste =100, hoogste = 0 ;
+            byte resultaat, aantalRes = 0, aantaltekort = 0, laagste =100, hoogste = 0, gemmiddelde ;
             ushort totaal = 0;
             // VRAAG    voornaam
             Console.WriteLine("wat is uw voornaam?: ");
@@ -61,34 +61,39 @@ namespace oefExamenInDeKlas
                     //   BEREKEN  totaal + res
                     totaal = (ushort)(totaal + resultaat);
 
-                }
-                //    ALS      res < 50
-                if (resultaat < 50)
-                {
-                    //    DAN      aantaltekort + 1
-                    aantaltekort++;
-                }
+                    //    ALS      res < 50
+                    if (resultaat < 50)
+                    {
+                        //    DAN      aantaltekort + 1
+                        aantaltekort++;
+                    }
 
-                //   BEREKEN  laagste
-                //    ALS      res < laagste
-                if (resultaat < laagste)
-                {
-                    //    DAN      laagste = res
-                    laagste = resultaat;
+                    //   BEREKEN  laagste
+                    //    ALS      res < laagste
+                    if (resultaat < laagste)
+                    {
+                        //    DAN      laagste = res
+                        laagste = resultaat;
 
+                    }
+
+                    //   BEREKEN  hoogste
+                    //    ALS     res > hoogste
+                    if (resultaat > hoogste)
+                    {
+                        //    DAN     hoogste = res
+                        hoogste = resultaat;
+                    }
+                    //   ANDERS   toon foutboodschap
+                    else
+                    {
+                        Console.WriteLine("dit is de foute boodschap");
+                    }
                 }
-
-                //   BEREKEN  hoogste
-                //    ALS     res > hoogste
-                if (resultaat > hoogste)
-                {
-                    //    DAN     hoogste = res
-                    hoogste = resultaat;
-                }
-
-                //   ANDERS   toon foutboodschap
                 // ZOLANG res niet leeg
             }
+            //BEREKEN gemmiddelde
+            gemmiddelde = (byte)( totaal / aantalRes);
 
 
             //WACHTEN
