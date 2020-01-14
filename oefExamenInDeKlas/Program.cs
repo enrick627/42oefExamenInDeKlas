@@ -37,7 +37,7 @@ namespace oefExamenInDeKlas
         static void Main(string[] args)
         {
             //variabelen
-            string voornaam, famillienaam;
+            string voornaam, famillienaam, resultaatinput = "";
             byte resultaat;
 
             // VRAAG    voornaam
@@ -48,25 +48,32 @@ namespace oefExamenInDeKlas
             famillienaam = Console.ReadLine();
 
             // HERHAAL  
-            while ()
+            while (string.IsNullOrEmpty(resultaatinput)
             {
+                //   VRAAG    res
+                Console.WriteLine("wat is uw resultaat?: ");
+                //    ALS      res is geldig
+                if (byte.TryParse(resultaatinput, out resultaat))
+                {
+                    //    DAN      
+                    //   BEREKEN  aantalRes +1
 
+                    //   BEREKEN  totaal + res
+
+                }
+
+                //    ALS      res < 50
+                //    DAN      aantaltekort + 1
+                //   BEREKEN  laagste
+                //    ALS      res < laagste
+                //    DAN      laagste = res
+                //   BEREKEN  hoogste
+                //    ALS     res > hoogste
+                //    DAN     hoogste = res
+                //   ANDERS   toon foutboodschap
+                // ZOLANG res niet leeg
             }
-            //   VRAAG    res
-            //    ALS      res is geldig
-            //    DAN      
-            //   BEREKEN  aantalRes +1
-            //   BEREKEN  totaal + res
-            //    ALS      res < 50
-            //    DAN      aantaltekort + 1
-            //   BEREKEN  laagste
-            //    ALS      res < laagste
-            //    DAN      laagste = res
-            //   BEREKEN  hoogste
-            //    ALS     res > hoogste
-            //    DAN     hoogste = res
-            //   ANDERS   toon foutboodschap
-            // ZOLANG res niet leeg
+
 
             //WACHTEN
             Console.WriteLine();
