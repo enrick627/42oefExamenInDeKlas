@@ -38,7 +38,7 @@ namespace oefExamenInDeKlas
         {
             //variabelen
             string voornaam, famillienaam, resultaatinput = "";
-            byte resultaat, aantalRes = 0, aantaltekort = 0;
+            byte resultaat, aantalRes = 0, aantaltekort = 0, laagste =100, hoogste = 0 ;
             ushort totaal = 0;
             // VRAAG    voornaam
             Console.WriteLine("wat is uw voornaam?: ");
@@ -71,14 +71,21 @@ namespace oefExamenInDeKlas
 
                 //   BEREKEN  laagste
                 //    ALS      res < laagste
-                if (true)
+                if (resultaat < laagste)
                 {
                     //    DAN      laagste = res
+                    laagste = resultaat;
+
                 }
 
                 //   BEREKEN  hoogste
                 //    ALS     res > hoogste
-                //    DAN     hoogste = res
+                if (resultaat > hoogste)
+                {
+                    //    DAN     hoogste = res
+                    hoogste = resultaat;
+                }
+
                 //   ANDERS   toon foutboodschap
                 // ZOLANG res niet leeg
             }
