@@ -40,14 +40,14 @@ namespace oefExamenInDeKlas
             string voornaam, famillienaam, resultaatinput = "", antwoord, voornaamLetter, achternaamLetter;
             byte resultaat = 0, aantalRes = 0, aantaltekort = 0, laagste = 100, hoogste = 0, gemmiddelde;
             ushort totaal = 0, totaalok = 0;
-            byte resultaatok;
+
             // VRAAG    voornaam
             Console.WriteLine("wat is uw voornaam?: ");
             voornaam = Console.ReadLine();
             // VRAAG    famillienaam
             Console.WriteLine("wat is uw achternaam?: ");
             famillienaam = Console.ReadLine();
-            Console.WriteLine("als u uw resultaat wilt weten moet u 101 typen");
+            Console.WriteLine("als u al uw punten heeft ingegeven typ dan 101 en uw resultaten zullen verschijnen. ");
 
             // HERHAAL  
             do
@@ -114,7 +114,7 @@ namespace oefExamenInDeKlas
                     if (gemmiddelde > 70 & aantaltekort == 0)
                     {
                         //DAN   onderscheiding
-                        antwoord = $"je bent geslaagd met onderscheiding";
+                        antwoord = $"je bent geslaagd met onderscheiding!";
                         Console.WriteLine($"dit is de conclusie van uw examens : {antwoord}");
 
                     }
@@ -129,7 +129,7 @@ namespace oefExamenInDeKlas
                     if (gemmiddelde < 50 & aantaltekort > 1)
                     {
 
-                        antwoord = $"je bent gebuist";
+                        antwoord = $"je bent gebuist.";
                         Console.WriteLine($"dit is de conclusie van uw examens : {antwoord}");
                     }
 
